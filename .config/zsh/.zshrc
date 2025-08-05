@@ -230,6 +230,11 @@ function ffmpegtranspile() {
     ffmpeg -vaapi_device /dev/dri/renderD128 -i "$1" -vf 'format=nv12,hwupload' -c:v "$encoder" -q 30 output.webm
 }
 
+function bin2iso() {
+    local name="$(basename $1 .cue)"
+    bchunk "$name.bin" "$name.cue" "$name"
+ }
+
 ### Set alias
 #############
 alias cls="clear"
@@ -261,6 +266,9 @@ alias rsynccopy='rsync -avzh --progress --stats'
 alias starthydown='cd ~/bin/hydownloader;poetry run hydownloader-daemon start --path /mnt/Yukari/import/hydownloader;cd ~-'
 alias cleanhydown='cd ~/bin/hydownloader;poetry run hydownloader-importer clear-imported --path /mnt/Yukari/import/hydownloader --action delete;cd ~-'
 alias gamescope1080='gamescope -h 1080 -H 1080 -- '
+alias setcapwine='sudo setcap cap_net_raw+epi $(which wine); sudo setcap cap_net_raw+epi $(which wineserver)'
+
+alias editzshrc='kate ~/.config/zsh/.zshrc'
 
 ### Bind keys
 #############
