@@ -265,12 +265,14 @@ alias grep='grep --color=auto'
 alias update-grub='sudo grub-mkconfig -o /boot/grub/grub.cfg'
 alias chownme='sudo chown -R vic:vic'
 alias rsynccopy='rsync -avzh --progress --stats'
-alias starthydown='cd ~/bin/hydownloader;poetry run hydownloader-daemon start --path /mnt/Yukari/import/hydownloader;cd ~-'
+alias starthydown='hydownloader-daemon start --path /mnt/Yukari/import/hydownloader'
 alias cleanhydown='cd ~/bin/hydownloader;poetry run hydownloader-importer clear-imported --path /mnt/Yukari/import/hydownloader --action delete;cd ~-'
 alias gamescope1080='gamescope -h 1080 -H 1080 -- '
 alias setcapwine='sudo setcap cap_net_raw+epi $(which wine); sudo setcap cap_net_raw+epi $(which wineserver)'
 
 alias editzshrc='kate ~/.config/zsh/.zshrc'
+
+alias jplocale='export LANG=ja_JP.UTF-8'
 
 ### Bind keys
 #############
@@ -370,3 +372,6 @@ source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f $ZDOTDIR/.p10k.zsh ]] || source $ZDOTDIR/.p10k.zsh
+
+# Unity CLI
+case ":${PATH}:" in *:"$HOME/.local/bin":*) ;; *) export PATH="$HOME/.local/bin:$PATH" ;; esac

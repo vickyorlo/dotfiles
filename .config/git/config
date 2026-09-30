@@ -10,3 +10,5 @@
 	rebase = true
 [protocol "file"]
 	allow = always
+[credential]
+	helper = /usr/lib/git-core/git-credential-libsecret
